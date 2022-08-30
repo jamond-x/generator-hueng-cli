@@ -1,0 +1,11 @@
+{
+  "name": "generator-hueng-cli",
+  "version": "1.0.0",
+  "description": "a customized front end cli",
+  "main": "index.js",
+  "author": "hueng",
+  "license": "MIT",
+  "dependencies": {
+    "yeoman-generator": "^5.7.0"
+  }
+}
