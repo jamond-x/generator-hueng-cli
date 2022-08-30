@@ -1,6 +1,6 @@
 ### install yeoman first
 ```bash
-npm i yeoman -g
+npm i yo -g
 ```
 
 ### install generator-hueng-cli
