@@ -18,7 +18,7 @@ module.exports = class extends Generator {
         name: 'project_name',
         type: 'input',
         message: '项目名称:',
-        default: 'a projet create by x-cli',
+        default: 'a projet create by hueng-cli',
       },
       {
         name: 'project_mode',
@@ -39,6 +39,7 @@ module.exports = class extends Generator {
 
   writing() {
     const Templates = [
+      // 'package.json',
       'public/favicon.ico',
       'public/index.html',
       'public/logo192.png',
@@ -54,13 +55,22 @@ module.exports = class extends Generator {
       'src/reportWebVitals.js',
       'src/setupTests.js',
       '.gitignore',
-      'package.json',
       'README.md',
     ];
 
     // const template = this.templatePath('index.html');
     // const output = this.destinationPath('index.html');
     const context = { title: this.ans.project_name, ans: this.ans };
+
+    try {
+      this.fs.copyTpl(
+        this.templatePath('./package.json'),
+        this.destinationPath('./package.json'),
+        context
+      );
+    } catch {
+      this.log('生成package.json文件失败！');
+    }
 
     try {
       Templates.forEach((item) => {
@@ -81,5 +91,14 @@ _____ _   _     _  _____   __
     } catch {
       this.log('wrong!');
     }
+
+    // try {
+    //   this.fs.copyTpl(
+    //     this.templatePath('./package.json'),
+    //     this.destinationPath('./package.json')
+    //   );
+    // } catch {
+    //   this.log('生成package.json文件失败！');
+    // }
   }
 };
