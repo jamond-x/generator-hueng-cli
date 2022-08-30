@@ -38,7 +38,7 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const Templates = [
+    const templates = [
       // 'package.json',
       'public/favicon.ico',
       'public/index.html',
@@ -64,8 +64,8 @@ module.exports = class extends Generator {
 
     try {
       this.fs.copyTpl(
-        this.templatePath('./package.json'),
-        this.destinationPath('./package.json'),
+        this.templatePath('package.json'),
+        this.destinationPath('package.json'),
         context
       );
     } catch {
